@@ -10,15 +10,13 @@ describe("Message class", function() {
     });
 
     it("constructor sets name", function() {
-        let namePassed;
-        const newMessageObject = new Message(constructor(namePassed));
-        expect(newMessageObject["name"]).toBe(namePassed);
+        let testMessage1 = new Message("testMessage1Name", [4,5]);
+        expect(testMessage1.messageName).toBe("testMessage1Name");
     });
 
     it("contains a commands array passed into the constructor as the 2nd argument", function() {
-        let commandsArrayPassed;
-        const newMessageObject = new Message(constructor(commandsArrayPassed));
-        expect(newMessageObject["commands"]).toBe(commandsArrayPassed);
+        let testMessage2 = new Message("testMessage2Name", [5,6]);
+        expect(testMessage2.commands).toStrictEqual([5,6]);
     });
 
 });
