@@ -28,7 +28,6 @@ describe("Rover class", function() {
     let testCommand3 = new Command("MOVE", 567);
     let testCommand4 = new Command("STATUS_CHECK");
     let sampleMessage2 = new Message("Testing123", [testCommand3, testCommand4]);
-    // passing with to StrictEqual, let's add functionality and retest
     expect(testRover3.receiveMessage(sampleMessage2).results.length).toBe(2);
   });
 
@@ -47,7 +46,7 @@ describe("Rover class", function() {
   });
 
   it("responds with a false completed value when attempting to move in LOW_POWER mode", function() {
-    let testRover6 = new Rover(8, 'LOW_POWER', 110);
+    let testRover6 = new Rover(8);
     let testCommand5 = new Command("MODE_CHANGE", 'LOW_POWER');
     let testCommand6 = new Command("MOVE", 456);
     let sampleMessage2 = new Message("Testing Move Command In Low Power Mode", [testCommand6, testCommand5]);
