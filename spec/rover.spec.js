@@ -25,18 +25,18 @@ describe("Rover class", function() {
 
   it("response returned by receiveMessage includes two results if two commands are sent in the message", function(){
     let testRover3 = new Rover(5)
-    let testCommand3 = new Command("type1", 567);
-    let testCommand4 = new Command("type2", 123);
+    let testCommand3 = new Command("MOVE", 567);
+    let testCommand4 = new Command("STATUS_CHECK");
     let sampleMessage2 = new Message("Testing123", [testCommand3, testCommand4]);
     // passing with to StrictEqual, let's add functionality and retest
-    expect(testRover3.receiveMessage(sampleMessage2).results).toStrictEqual([testCommand3, testCommand4]);
+    expect(testRover3.receiveMessage(sampleMessage2).results.length).toBe(2);
   });
 
   it("responds correctly to the status check command", function() {
     let testRover4 = new Rover(6)
     let testCommand3 = new Command("STATUS_CHECK");
     let sampleMessage2 = new Message("Testing Status Check", [testCommand3]);
-    expect(testRover4.receiveMessage(sampleMessage2).results).toStrictEqual([{completed: true, roverStatus:{mode: 'NORMAL', generatorWatts: 110, position: 6}}]);
+    expect(testRover4.receiveMessage(sampleMessage2).results).toStrictEqual([{completed: true, roverStatus: { mode: 'NORMAL', generatorWatts: 110, position: 6 }}]);
   });
 
   it("responds correctly to the mode change command", function() {

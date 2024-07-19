@@ -56,10 +56,16 @@ class Rover {
 module.exports = Rover;
 
 // rover.js test code:
-let command1 = new Command("MOVE", 1010);
-// let command3 = new Command("MODE_CHANGE", "LOW_POWER")
-let command4 = new Command("STATUS_CHECK");
-let testRover = new Rover(1);
-let testMessage4 = new Message("TestMessage4", [command1, command4])
+// let command1 = new Command("MOVE", 1010);
+// // let command3 = new Command("MODE_CHANGE", "LOW_POWER")
+// let command4 = new Command("STATUS_CHECK");
+// let testRover = new Rover(1);
+// let testMessage4 = new Message("TestMessage4", [command1, command4])
 
-console.log(testRover.receiveMessage(testMessage4).results);
+// console.log(testRover.receiveMessage(testMessage4).results);
+
+
+let testRover4 = new Rover(6)
+let testCommand3 = new Command("STATUS_CHECK");
+let sampleMessage2 = new Message("Testing Status Check", [testCommand3]);
+console.log(testRover4.receiveMessage(sampleMessage2).results);
